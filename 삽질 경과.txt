@@ -1,5 +1,0 @@
-1. yarn 설치
-2. react-native 설치
-3. gradle sync 해줘서 버전 맞춰주기
-4. jdk 경로 따서 java home 설정
-5. 실행시 tcp 포트 맞춰주기(?) (C:\Users\cilab710\AppData\Local\Android\Sdk\platform-tools) adb reverse tcp:8081 tcp:8081

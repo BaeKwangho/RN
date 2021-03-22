@@ -1,0 +1,20 @@
+1. yarn 설치
+2. react-native 설치
+3. gradle sync 해줘서 버전 맞춰주기
+4. jdk 경로 따서 java home 설정
+5. 실행시 tcp 포트 맞춰주기(?) (C:\Users\cilab710\AppData\Local\Android\Sdk\platform-tools) adb reverse tcp:8081 tcp:8081
+6. gradle-wrapper.properties 에서 gradle 6.3으로 변경
+
+#type script를 설치하긴 하였으나 별 필요없음.
+
+(3/21)
+7. react-redux, redux 설치.
+8. native-base 설치 (컴포넌트 불러오기용.)
+	-> 아이콘 문제는 app/build.gradle 에서 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle" 추가
+9. yarn react-navigation 설치.
+	-> yarn add react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
+	-> 패키지 설치 오류 뜰 시 관리자 권한으로 충돌되는 node_modules의 폴더 삭제 해줘야함.
+
+(3/22)
+10. 예제코드 작성 및 기존 head,navi를 첨부.
+	-> 네비게이션 동작 확인, stack navi를 switch로 바꾸었으나 동작 방식 이해 필요
