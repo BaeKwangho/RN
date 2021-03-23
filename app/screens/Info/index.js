@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Head from '../../base/head';
 import Navi from '../../base/navi';
-import {Container} from 'native-base';
+import {Container,Content} from 'native-base';
 import {View,Text} from 'react-native';
 
 export default class Info extends Component {
@@ -12,7 +12,7 @@ export default class Info extends Component {
         return (
             <Container>
                 <Head/>
-				<View><Text>Info</Text></View>
+				<Content><Text>Info</Text></Content>
 				<Navi/>
             </Container>
         );

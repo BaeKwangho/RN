@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import { Header, Body, Title, Left, Button, Icon} from 'native-base';
-
+import { Header, Body, Title} from 'native-base';
+import {StyleSheet} from 'react-native';
 
 export default class Head extends Component{
 	constructor(props){
@@ -18,13 +18,14 @@ export default class Head extends Component{
 
 	render() {
 		return (
-			<Header>
+			<Header>{/*
 				<Left>
+					
 					<Button isBackPage = {this.state.isBackPage}>
 						<Icon name="arrow-back"/>
 					</Button>
-					{}
-				</Left>
+					
+				</Left>*/}
 				<Body>
 					<Title>테스트</Title>
 				</Body>
@@ -32,3 +33,9 @@ export default class Head extends Component{
 		);
 	}
 }
+
+const styles=StyleSheet.create({
+	center:{
+		textAlign:"center"
+	}
+})

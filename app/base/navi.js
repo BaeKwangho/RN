@@ -7,30 +7,31 @@ export default class Navi extends Component {
 		return (
 			<Footer>
 				<FooterTab>
-					<Button badge vertical
+					{/*badge 추가 가능*/}
+					<Button vertical 
 						onPress={()=>NavigationService.navigate('Login',{
 							screen:'Login',
 							info:'Login'
 						})}>
-						<Badge><Text>2</Text></Badge>
+						{/*<Badge><Text>2</Text></Badge>*/}
 						<Icon type="AntDesign" name="windows"/>
 						<Text>Maps</Text>
 					</Button>
-					<Button badge active vertical
+					<Button active vertical
 						onPress={()=>NavigationService.navigate('Home',{
 							screen:'Home',
 							info:'Home'
 						})}>
-						<Badge></Badge>
+						{/*<Badge></Badge>*/}
 						<Icon type="AntDesign" name='home'/>
 						<Text>Home</Text>
 					</Button>
-					<Button badge vertical
+					<Button vertical
 						onPress={()=>NavigationService.navigate('Info',{
 							screen:'Info',
 							info:'Info'
 						})}>
-						<Badge><Text></Text></Badge>
+						{/*<Badge><Text></Text></Badge>*/}
 						<Icon type="AntDesign" name="info"/>
 						<Text>Info</Text>
 					</Button>
