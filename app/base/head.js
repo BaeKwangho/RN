@@ -7,27 +7,25 @@ export default class Head extends Component{
 		super(props);
 
 		this.state={
-			isBackPage : false
+			isBackPage : false,
+			title:props.title,
 		}
+		
 	}
-
-	isToggle = () => {
-		this.setState(isBackpage = !isBackpage)
-	};
-	
 
 	render() {
 		return (
-			<Header>{/*
+			<Header>{
+				/*
 				<Left>
-					
 					<Button isBackPage = {this.state.isBackPage}>
 						<Icon name="arrow-back"/>
 					</Button>
-					
-				</Left>*/}
+				</Left>
+				*/
+				}
 				<Body>
-					<Title>테스트</Title>
+					<Title>{this.state.title}</Title>
 				</Body>
 			</Header>
 		);

@@ -18,3 +18,7 @@
 (3/22)
 10. 예제코드 작성 및 기존 head,navi를 첨부.
 	-> 네비게이션 동작 확인, stack navi를 switch로 바꾸었으나 동작 방식 이해 필요
+
+(3/26)
+11. v4 버전의 react-navigation을 v5로 올려줌.
+	-> package.json 파일 수정 , yarn add @react-navigation/native @react-navigation/stack

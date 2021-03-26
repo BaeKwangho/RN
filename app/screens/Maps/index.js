@@ -8,14 +8,21 @@ import {View,Text} from 'react-native';
 export default class Maps extends Component {
 	constructor(props){
 		super(props);
+
+		this.state={
+			curPage:{
+				title:'주변정보',
+				info:'maps',
+			}
+		}
 	}
 
 	render() {
 		return (
             <Container>
-                <Head/>
+                <Head title={this.state.curPage.title}/>
 				<Content><Text>Maps</Text></Content>
-				<Navi/>
+				<Navi info={this.state.curPage.info}/>
             </Container>
 		)
 	}

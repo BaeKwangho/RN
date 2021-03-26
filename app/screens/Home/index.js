@@ -3,6 +3,8 @@ import {Container,Content} from 'native-base';
 import Head from '../../base/head';
 import Navi from '../../base/navi';
 import {View,Text,ScrollView,StyleSheet} from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import {NavigationService} from '../../common';
 
 class List extends Component {
 	constructor(props){
@@ -17,11 +19,17 @@ class List extends Component {
 
 	render(){
 		return (
-			<View style={styles.banner}>
-				<Text>제목 : {this.state.title}</Text>
-				<Text>글쓴이 : {this.state.auth}</Text>
-				<Text>날짜 : {this.state.date}</Text>
-			</View>
+			<TouchableOpacity
+				onPress={()=>NavigationService.navigate('Review',{
+					screen:'Review',
+					info:'Review'
+				})}>
+				<View style={styles.banner}>
+					<Text>제목 : {this.state.title}</Text>
+					<Text>글쓴이 : {this.state.auth}</Text>
+					<Text>날짜 : {this.state.date}</Text>
+				</View>
+			</TouchableOpacity>
 		)
 	}
 
@@ -30,12 +38,19 @@ class List extends Component {
 export default class Home extends Component {
 	constructor(props){
 		super(props);
+
+		this.state={
+			curPage:{
+                title:'메인화면',
+                info:'home',
+            }
+		}
 	}
 
 	render() {
 		return (
 			<Container>
-                <Head/>
+                <Head title={this.state.curPage.title}/>
 				<Content>
 					<ScrollView>
 						<View style={styles.banner}>
@@ -46,7 +61,7 @@ export default class Home extends Component {
 						<List/>
 					</ScrollView>
 				</Content>
-				<Navi/>
+				<Navi info={this.state.curPage.info}/>
 			</Container>
 		)
 	}

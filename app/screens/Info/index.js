@@ -7,13 +7,19 @@ import {View,Text} from 'react-native';
 export default class Info extends Component {
     constructor(props) {
         super(props);
+        this.state={
+			curPage:{
+                title:'정보보기',
+                info:'info',
+            }
+		}
     }
     render() {
         return (
             <Container>
-                <Head/>
+                <Head title={this.state.curPage.title}/>
 				<Content><Text>Info</Text></Content>
-				<Navi/>
+				<Navi info={this.state.curPage.info}/>
             </Container>
         );
     }

@@ -1,22 +1,33 @@
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 
-import Login from './Login';
+import Maps from './Maps';
 import Info from './Info';
 import Home from './Home';
+import Review from './Home/Review';
+import Login from './Login';
 
-/*
-const AuthStack = createStackNavigator(
+
+const HomeStack = createStackNavigator(
 	{
-		Login: {screen:Login},
-		Info: {screen:Info},
-		Home: {screen:Home},
+		Review:{
+			screen:Review,
+			navigationOptions: ({navigation}) => ({
+				headerShown:false,
+			}),},
+		Home:{
+			screen:Home,
+			navigationOptions: ({navigation}) => ({
+				headerShown:false,
+			}),
+		},
 	},
 	{
-		initialRouteName:'Home'
-	}
+		initialRouteName:'Home',
+	},
+	
 );
-
+/*
 const AppNavigator = createSwitchNavigator(
 	{
 		Auth: AuthStack
@@ -29,14 +40,25 @@ const AppNavigator = createSwitchNavigator(
 
 const AppNavigator = createSwitchNavigator(
 	{
-		Login: {screen:Login},
+		Maps: {screen:Maps},
 		Info: {screen:Info},
-		Home: {screen:Home},
+		HomeStack:{screen:HomeStack},
 	},
 	{
-		initialRouteName:'Home'
+		initialRouteName:'HomeStack'
 	}
 )
 
+const AppStack = createStackNavigator(
+	{
+		Login : Login,
+		TabNavigator:{
+			screen: AppNavigator,
+			navigationOptions: ({navigation}) => ({
+				headerShown:false,
+			}),
+		},
+	}
+);
 
-export default createAppContainer(AppNavigator);
+export default createAppContainer(AppStack);
