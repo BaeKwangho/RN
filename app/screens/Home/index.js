@@ -1,39 +1,8 @@
 import React, {Component} from 'react';
 import {Container,Content} from 'native-base';
-import Head from '../../base/head';
-import Navi from '../../base/navi';
 import {View,Text,ScrollView,StyleSheet} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import {NavigationService} from '../../common';
-
-class List extends Component {
-	constructor(props){
-		super(props);
-
-		this.state={
-			title:"title",
-			auth:"auth",
-			date:"date",
-		}
-	}
-
-	render(){
-		return (
-			<TouchableOpacity
-				onPress={()=>NavigationService.navigate('Review',{
-					screen:'Review',
-					info:'Review'
-				})}>
-				<View style={styles.banner}>
-					<Text>제목 : {this.state.title}</Text>
-					<Text>글쓴이 : {this.state.auth}</Text>
-					<Text>날짜 : {this.state.date}</Text>
-				</View>
-			</TouchableOpacity>
-		)
-	}
-
-}
+import List from '../Components/List';
 
 export default class Home extends Component {
 	constructor(props){
@@ -46,22 +15,23 @@ export default class Home extends Component {
             }
 		}
 	}
-
+	_navigate(){
+		console.log(this.state);
+		this.props.navigation.navigate('Review');
+	}
 	render() {
 		return (
 			<Container>
-                <Head title={this.state.curPage.title}/>
 				<Content>
 					<ScrollView>
 						<View style={styles.banner}>
 							<Text style={styles.text}> 여기는 배너공간</Text>
 						</View>
-						<List/>
-						<List/>
-						<List/>
+						<List nav={this.props.navigation}/>
+						<List nav={this.props.navigation}/>
+						<List nav={this.props.navigation}/>
 					</ScrollView>
 				</Content>
-				<Navi info={this.state.curPage.info}/>
 			</Container>
 		)
 	}

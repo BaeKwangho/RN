@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import RootRouter from './Router';
 import {StyleSheet,Platform,SafeAreaView} from 'react-native';
+import AppStack from './screens';
 
 export default class App extends Component{
   render(){
     return (
         <SafeAreaView style={styles.droidSafeArea}>
-            <RootRouter/>
+            <AppStack />
         </SafeAreaView>
     );
   }
