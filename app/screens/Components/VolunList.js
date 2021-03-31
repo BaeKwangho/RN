@@ -8,17 +8,17 @@ import {StackActions} from 'react-navigation';
 ########## must be modified ##############
 ##########################################
 */
-const ListItems = (props) => {
+const VolunList = (props) => {
   const [volunObj, setVolun] = useState(props.volunObj._W);
   console.log(volunObj);
   const listItems = volunObj.map((volun) => (
-    <List nav={props.navigation} key={volun.progrmRegistNo} data={volun} />
+    <Volun nav={props.navigation} key={volun.progrmRegistNo} data={volun} />
   ));
 
   return <View>{listItems}</View>;
 };
 
-const List = (props) => {
+const Volun = (props) => {
   const [title, setTitle] = useState(props.data.progrmSj);
   const [auth, setAuth] = useState(props.data.nanmmbyNm);
   const [date, setDate] = useState(props.data.progrmBgnde);
@@ -56,4 +56,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ListItems;
+export default VolunList;

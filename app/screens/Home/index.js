@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Container, Content} from 'native-base';
 import {View, Text, ScrollView, StyleSheet} from 'react-native';
-import ListItems from '../Components/List';
+import VolunList from '../Components/VolunList';
 import {SearchBar} from 'react-native-elements';
 import Swiper from 'react-native-swiper';
 
@@ -44,7 +44,11 @@ export default class Home extends Component {
         <Content>
           <ScrollView>
             <View style={styles.banner}>
-              <Swiper>
+              <Swiper
+                autoplay={true}
+                removeClippedSubviews={false}
+                dot={<View></View>}
+                activeDot={<View></View>}>
                 <View style={styles.slide1}>
                   <Text>gd</Text>
                 </View>
@@ -75,7 +79,7 @@ export default class Home extends Component {
               onCancel={() => console.log(onCancel())}
               value={this.state.curPage.value}
             />
-            <ListItems navigation={this.props.navigation} volunObj={datalist} />
+            <VolunList navigation={this.props.navigation} volunObj={datalist} />
           </ScrollView>
         </Content>
       </Container>
