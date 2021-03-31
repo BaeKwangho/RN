@@ -1,55 +1,59 @@
-import React, {Component} from 'react';
-import {View,Text,ScrollView,StyleSheet} from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { StackActions } from 'react-navigation';
+import React, {Component, useState} from 'react';
+import {View, Text, ScrollView, StyleSheet} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import {StackActions} from 'react-navigation';
 
+/*
+##########################################
+########## must be modified ##############
+##########################################
+*/
+const ListItems = (props) => {
+  const [volunObj, setVolun] = useState(props.volunObj._W);
+  console.log(volunObj);
+  const listItems = volunObj.map((volun) => (
+    <List nav={props.navigation} key={volun.progrmRegistNo} data={volun} />
+  ));
 
+  return <View>{listItems}</View>;
+};
 
-const pushReview = StackActions.push({
-	routeName:'Review',
-	params:{
-		title:'test',
-		auth:'also'
-	},
-});
+const List = (props) => {
+  const [title, setTitle] = useState(props.data.progrmSj);
+  const [auth, setAuth] = useState(props.data.nanmmbyNm);
+  const [date, setDate] = useState(props.data.progrmBgnde);
 
-export default class List extends Component {
-	constructor(props){
-		super(props);
+  const pushReview = StackActions.push({
+    routeName: 'Review',
+    params: {
+      title: title,
+      auth: auth,
+    },
+  });
 
-		this.state={
-			title:"title",
-			auth:"auth",
-			date:"date",
-		}
+  const navigate = () => {
+    props.nav.dispatch(pushReview);
+  };
 
-	}
-
-	_navigate(){
-		this.props.nav.dispatch(pushReview);
-	}
-
-	render(){
-		return (
-			<TouchableOpacity
-				onPress={this._navigate.bind(this)}>
-				<View style={styles.banner}>
-					<Text>제목 : {this.state.title}</Text>
-					<Text>글쓴이 : {this.state.auth}</Text>
-					<Text>날짜 : {this.state.date}</Text>
-				</View>
-			</TouchableOpacity>
-		)
-	}
-
-}
+  return (
+    <TouchableOpacity onPress={navigate}>
+      <View style={styles.banner}>
+        <Text>제목 : {title}</Text>
+        <Text>글쓴이 : {auth}</Text>
+        <Text>날짜 : {date}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
-	banner : {
-		alignContent:"center",
-		justifyContent:"center",
-		backgroundColor: '#F5FCFF',
-		margin:10,
-		minHeight:250
-	},
+  banner: {
+    alignContent: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#F5FCFF',
+    margin: 10,
+    minHeight: 250,
+  },
 });
+
+export default ListItems;

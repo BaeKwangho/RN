@@ -1,30 +1,41 @@
-import { Container, Content } from 'native-base';
+import {Container, Content} from 'native-base';
 import React, {Component} from 'react';
-import {View,Text} from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-import List from '../Components/List';
+import {View, Text} from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
+import ListItems from '../Components/List';
 
-export default class Review extends Component{
-	constructor(props){
-		super(props);
-		
-	}
+const datalist = fetch('http://edge.cafe24app.com/datelist', {
+  method: 'GET',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+})
+  .then((response) => response.json())
+  .then((json) => {
+    return json.items.item;
+  });
 
-	render(){
-		const {navigation} = this.props;
+export default class Review extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-		return(
-			<Container>
-				<Content>
-					<ScrollView>
-						<View>
-							<Text>{JSON.stringify(navigation.getParam('title'))}</Text>
-							<Text>{JSON.stringify(navigation.getParam('auth'))}</Text>
-							<List nav={this.props.navigation}></List>
-						</View>
-					</ScrollView>
-				</Content>
-			</Container>
-		);
-	}
+  render() {
+    const {navigation} = this.props;
+
+    return (
+      <Container>
+        <Content>
+          <ScrollView>
+            <View>
+              <Text>{JSON.stringify(navigation.getParam('title'))}</Text>
+              <Text>{JSON.stringify(navigation.getParam('auth'))}</Text>
+            </View>
+          </ScrollView>
+          <ListItems navigation={this.props.navigation} volunObj={datalist} />
+        </Content>
+      </Container>
+    );
+  }
 }
