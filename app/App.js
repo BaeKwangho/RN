@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {StyleSheet,Platform,SafeAreaView} from 'react-native';
 import AppStack from './screens';
-
 export default class App extends Component{
   render(){
     return (

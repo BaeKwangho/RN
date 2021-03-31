@@ -11,7 +11,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 export default class Login extends Component{
     
     static navigationOptions = {
-        header: null,
+        headerShown: false,
     };
 
     _doLogin(){
@@ -23,7 +23,7 @@ export default class Login extends Component{
         return (
             <View style={styles.container}>
                 <View style={styles.titleArea}>
-                    <Text style={styles.title}>Simple App</Text>
+                    <Text style={styles.title}>봉사활동</Text>
                 </View>
                 <View style={styles.formArea}>
                     <TextInput 

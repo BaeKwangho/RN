@@ -3,9 +3,11 @@
 3. gradle sync 해줘서 버전 맞춰주기
 4. jdk 경로 따서 java home 설정
 5. 실행시 tcp 포트 맞춰주기(?) (C:\Users\cilab710\AppData\Local\Android\Sdk\platform-tools) adb reverse tcp:8081 tcp:8081
+	-> 혹은 저 경로를 패스 변수로 추가해주면 자동으로 등록해주기도..
+	
 6. gradle-wrapper.properties 에서 gradle 6.3으로 변경
 
-#type script를 설치하긴 하였으나 별 필요없음.
+#type script를 설치하긴 하였으나 사용하지 않을 예정
 
 (3/21)
 7. react-redux, redux 설치.
@@ -29,3 +31,8 @@
 12. 11 과정 reset. github 프로젝트 참조하여 v4로 다시 재구성 및 router 삭제.
 	-> 및 헤더, 네비 교체(navigation 지원하는 컴포넌트)
 	-> TODO) 배너 생성 및 실제값 첨부
+
+(3/29)
+13. 노트북 바꾸면서 환경변경(?) 모르겠음.
+	-> 프로젝트 gradble 버전 6.5 확인
+	-> 음 그리고 ADK 29버전인거 확인. (내 컴퓨터 30이어서 빌드 안됐음)

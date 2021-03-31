@@ -4,6 +4,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StackActions } from 'react-navigation';
 
 
+
 const pushReview = StackActions.push({
 	routeName:'Review',
 	params:{
