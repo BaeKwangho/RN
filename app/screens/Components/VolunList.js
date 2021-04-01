@@ -9,8 +9,15 @@ import {StackActions} from 'react-navigation';
 ##########################################
 */
 const VolunList = (props) => {
+  //원래 _w를 fetch에서 나눠주려고 했는데 object props로 넘겨주면서 자꾸 -W안에 담아서 안됨
+  if (props.volunObj._W.constructor == Object){
+    props.volunObj._W = [props.volunObj._W]
+  }else{
+    console.log('not executed');
+  }
   const [volunObj, setVolun] = useState(props.volunObj._W);
-  console.log(volunObj);
+
+  
   const listItems = volunObj.map((volun) => (
     <Volun nav={props.navigation} key={volun.progrmRegistNo} data={volun} />
   ));

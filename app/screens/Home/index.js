@@ -6,16 +6,16 @@ import {SearchBar} from 'react-native-elements';
 import Swiper from 'react-native-swiper';
 
 const datalist = fetch('http://edge.cafe24app.com/datelist', {
-  method: 'GET',
-  headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-  },
-})
-  .then((response) => response.json())
-  .then((json) => {
-    return json.items.item;
-  });
+	method: 'GET',
+	headers: {
+		Accept: 'application/json',
+		'Content-Type': 'application/json',
+	},
+	})
+	.then((response) => response.json())
+	.then((json) => {
+		return json.items.item;
+});
 
 //const getOther = test();
 
